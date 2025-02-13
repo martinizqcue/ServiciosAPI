@@ -1,0 +1,80 @@
+/* Estilo general */
+.root {
+    -fx-font-family: 'Arial', sans-serif;
+    -fx-background-color: #f4f4f4; /* Fondo gris claro para toda la aplicación */
+    -fx-padding: 20px;
+}
+
+/* Caja de texto */
+.text-field {
+    -fx-font-size: 16px;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #b0bec5;  /* Gris suave */
+    -fx-border-radius: 5px;
+    -fx-padding: 8px;
+    -fx-pref-width: 300px;
+    -fx-focus-color: #00796b;  /* Verde oscuro de foco */
+    -fx-effect: innershadow(gaussian, rgba(0, 150, 136, 0.4), 5, 0, 0, 2); /* Sombra sutil */
+}
+
+/* ComboBox */
+.combo-box {
+    -fx-font-size: 16px;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #b0bec5;
+    -fx-border-radius: 5px;
+    -fx-padding: 8px;
+    -fx-pref-width: 300px;
+    -fx-effect: innershadow(gaussian, rgba(0, 150, 136, 0.4), 5, 0, 0, 2); /* Sombra sutil */
+}
+
+/* Botón */
+.button {
+    -fx-font-size: 16px;
+    -fx-background-color: #00796b;  /* Verde oscuro */
+    -fx-text-fill: white;
+    -fx-border-radius: 5px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #004d40;  /* Verde más oscuro al pasar el ratón */
+}
+
+/* Etiqueta de resultados */
+.label {
+    -fx-font-size: 18px;
+    -fx-text-fill: #333333;
+    -fx-font-weight: bold;
+    -fx-background-color: #e0f7fa; /* Fondo azul suave */
+    -fx-padding: 10px;
+    -fx-border-radius: 5px;
+    -fx-text-alignment: center;
+}
+
+/* Texto de instrucciones */
+.text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #555555; /* Gris oscuro */
+    -fx-padding: 0 0 10px 0;
+    -fx-alignment: center;
+    -fx-line-spacing: 1.5;
+}
+
+/* Espaciado y alineación */
+.vbox {
+    -fx-alignment: center;
+    -fx-spacing: 20px;
+    -fx-padding: 20px;
+    -fx-background-color: #eceff1; /* Fondo gris suave para el contenedor */
+    -fx-border-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 150, 136, 0.2), 10, 0, 0, 10); /* Sombra para profundidad */
+}
+
+/* Estilo del ComboBox al hacer click */
+.combo-box-popup {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #b0bec5;
+    -fx-border-radius: 5px;
+}

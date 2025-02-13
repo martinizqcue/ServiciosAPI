@@ -1,0 +1,46 @@
+package org.example.apihttp;
+
+import com.sun.net.httpserver.HttpServer;
+import com.sun.net.httpserver.HttpHandler;
+import com.sun.net.httpserver.HttpExchange;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
+
+public class HttpServerService {
+
+    private HttpServer server;
+
+    public void start() throws IOException {
+        server = HttpServer.create(new InetSocketAddress(8080), 0);
+
+        // Definir una ruta para la API
+        server.createContext("/api/hello", new HelloHandler());
+
+        // Iniciar el servidor
+        server.start();
+        System.out.println("Servidor HTTP escuchando en el puerto 8080...");
+    }
+
+    public void stop() {
+        if (server != null) {
+            server.stop(0); // Detiene el servidor
+            System.out.println("Servidor HTTP detenido.");
+        }
+    }
+
+    // Handler para manejar la ruta "/api/hello"
+    static class HelloHandler implements HttpHandler {
+        @Override
+        public void handle(HttpExchange exchange) throws IOException {
+            String response = "{\"message\": \"Hola desde el servidor!\"}";
+            exchange.getResponseHeaders().set("Content-Type", "application/json");
+            exchange.sendResponseHeaders(200, response.getBytes().length);
+
+            OutputStream os = exchange.getResponseBody();
+            os.write(response.getBytes());
+            os.close();
+        }
+    }
+}

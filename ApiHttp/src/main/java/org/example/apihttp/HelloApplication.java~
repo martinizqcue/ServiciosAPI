@@ -1,0 +1,49 @@
+package org.example.apihttp;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import org.example.apihttp.HttpServerService;
+
+import java.io.IOException;
+
+public class HelloApplication extends Application {
+
+    private HttpServerService httpServerService;
+
+    @Override
+    public void start(Stage stage) {
+        // Inicializa el servicio HTTP
+        httpServerService = new HttpServerService();
+        try {
+            httpServerService.start();  // Inicia el servidor HTTP
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Configura la UI de JavaFX
+        // Aquí se carga el FXML correspondiente
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("server-status-view.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            stage.setTitle("Servicio HTTP con JavaFX");
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void stop() {
+        // Detiene el servidor cuando se cierra la aplicación
+        httpServerService.stop();
+    }
+
+    public static void main(String[] args) {
+        launch();
+    }
+}
